@@ -1,0 +1,487 @@
+@font-face { 
+    font-family: 'WeatherSunday'; 
+    src: url('fuentes/weather_sunday_-_personal_use-webfont.woff2') format('woff2'),
+    url('fuentes/WeatherSunday.woff') format('woff'), 
+    url('fuentes/WeatherSunday.otf') format('opentype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+
+body { 
+    margin: 0; 
+    overflow: hidden; /* Elimina el desplazamiento de la página */ 
+    height: 100vh; /* Asegura que el contenedor ocupe toda la ventana */ 
+    min-height: 100vh;
+    font-family: 'WeatherSunday', Arial, sans-serif; 
+    padding: 0; 
+    background-color: #f9f9f9;
+    color: #000000; 
+    display: flex; 
+    justify-content: center; /* Centra todo horizontalmente */ 
+    align-items: center; /* Centra todo verticalmente */ 
+    flex-direction: column; /* Alinea los elementos en columna */ 
+}
+
+nav {
+    position: fixed; /* Fija el navbar en la parte superior */
+    top: 0;
+    width: 100%;
+    height: 50px; /* Altura del nav */
+    z-index: 1000; /* Asegura que el navbar esté siempre encima */
+    background-color: #333;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los enlaces */
+}
+
+nav ul li {
+    font-family: 'WeatherSunday', Arial, sans-serif; 
+    margin:10px; /* Espaciado entre los enlaces */
+}
+
+nav ul li a {
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-size: 25px; /* Tamaño de fuente */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+nav ul li a:hover {
+    color: #87faa4; /* Color de los enlaces al pasar el ratón por encima */
+}
+
+/* Contenedor principal */
+#fondo2 {
+    position: relative; /* Para posicionar los elementos hijos */
+    width: 100%; /* Ocupa el ancho completo */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    overflow: hidden; /* Oculta contenido desbordante */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+#portada {
+    animation: moverYcentrar 4s ease-in-out forwards;
+    width: 60%; /* Tamaño ajustable */
+    border-radius: 10px; /* Bordes redondeados */
+    z-index: 1; /* Asegura que la imagen esté sobre el fondo */
+}
+
+@keyframes moverYcentrar {
+    0% {
+        opacity: 0; /* Invisible */
+        transform: translateX(100%); /* Comienza desde la derecha */
+    }
+    50% {
+        opacity: 1; /* Aparece a mitad de camino */
+        transform: translateX(10%); /* Casi en su lugar */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* En su posición final (centrado) */
+    }
+}
+
+/* Texto del teléfono */
+#telefono {
+    position: absolute; /* Para posicionarlo relativo al contenedor */
+    bottom: 10%; /* Separación del borde inferior */
+    left: 15%; /* Separación del borde izquierdo */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    color: #ffffff; /* Texto blanco */
+    background-color: rgba(0, 0, 0, 0.726); /* Fondo negro translúcido */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    z-index: 2; /* Asegura que esté encima de la imagen */
+    animation: moverTexto 4s ease-in-out forwards; /* Animación de entrada */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animación del texto */
+@keyframes moverTexto {
+    0% {
+        opacity: 0; /* Invisible */
+        transform: translateX(-100%); /* Comienza fuera de la izquierda */
+    }
+    50% {
+        opacity: 1; /* Aparece */
+        transform: translateX(-10%); /* Casi en su lugar */
+    }
+    100% {
+        transform: translateX(0); /* En su posición final */
+    }
+}
+
+.section {
+    margin-top: 50px;
+    overflow-y: auto; /* Permite el scroll vertical si el contenido es más largo */
+    background-image: url("logos/MARCA\ DE\ AGUA\ ISART\ 2.png"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Oculta la sección fuera de la vista inicial */
+    width: 100%;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    transition: left 0.5s ease-in-out; /* Suaviza la transición al moverse */
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.section.active {
+    left: 0; /* Muestra la sección activa */
+}
+
+/* Contenedor principal que agrupa todo */
+#contenedor0 {
+    margin-top: 50px;
+    display: flex; /* Habilitar flexbox */
+    flex-direction: column; /* Alinear elementos en columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    text-align: center; /* Centrar texto dentro de los elementos */
+    margin: auto; /* Centrar el contenedor */
+    max-width: 900px; /* Ancho máximo del contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #f4f4f4; /* Fondo gris claro */
+    gap: 15px; /* Espaciado entre los contenedores hijos */
+}
+
+/* Contenedor de imagen y título */
+#contenedor1 {
+    display: flex; /* Activar flexbox */
+    align-items: center; /* Centrar verticalmente imagen y título */
+    gap: 10px; /* Espaciado entre la imagen y el título */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto oscuro */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.29); /* Sombra alrededor del contenedor */
+    width: 100%; /* Ocupa todo el ancho del contenedor principal */
+    max-width: 900px; /* Ancho máximo */
+    text-align: center; /* Centrar el contenido */
+}
+
+/* Contenedor del párrafo y la tabla */
+#contenedor2 {
+    display: flex; /* Habilitar flexbox */
+    flex-direction: column; /* Colocar los elementos en columna */
+    align-items: center; /* Centrar horizontalmente */
+    text-align: center; /* Centrar texto */
+    gap: 15px; /* Espaciado entre el párrafo y la tabla */
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+/* Imagen dentro de #contenedor1 */
+#contenedor1 img {
+    height: 90px; /* Altura del logo */
+    width: auto; /* Mantener proporción */
+    margin: 0; /* Eliminar márgenes */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+}
+
+/* Título dentro de #contenedor1 */
+#contenedor1 h2 {
+    font-size: 40px; /* Tamaño del título */
+    color: #000000; /* Color del texto */
+    margin: 0; /* Sin márgenes extra */
+}
+
+/* Párrafo dentro de #contenedor2 */
+#contenedor2 p {
+    font-size: 18px; /* Tamaño de fuente */
+    margin: 0; /* Eliminar márgenes */
+    text-align: justify; /* Justificar texto */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo para la tabla dentro de #contenedor2 */
+#contenedor2 table {
+    width: auto; /* Ocupa todo el ancho disponible */
+    max-width: 900px; /* Ancho máximo */
+    border: 2px solid #000; /* Borde de la tabla */
+    border-collapse: collapse; /* Unir bordes de celdas */
+}
+
+/* Estilo para celdas de la tabla */
+#contenedor2 td {
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alinear texto a la izquierda */
+    border: 1px solid #000; /* Borde interno de las celdas */
+}
+
+/* Estilo para listas dentro de #contenedor2 */
+#contenedor2 ul {
+    list-style-type: disc; /* Viñetas */
+    padding-left: 20px; /* Espaciado interno a la izquierda */
+}
+
+#contenedor2 ul li {
+    margin-bottom: 10px; /* Espaciado entre elementos */
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.carousel-slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f4f4f4;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    display: flex;
+    opacity: 1;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura fija para un tamaño general uniforme */
+    overflow: hidden;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4; /* Fondo para márgenes */
+}
+
+.carousel-image {
+    width: 100%; /* Ajusta la imagen al ancho del carrusel */
+    height: 100%; /* Ajusta la imagen a la altura del carrusel */
+    object-fit: contain; /* Asegura que la imagen se vea completa */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Imagen oculta por defecto */
+    transition: opacity 1s ease; /* Transición suave */
+}
+
+.carousel-image.active {
+    opacity: 1; /* Imagen activa visible */
+    z-index: 1;
+    display: block;
+}
+
+/* Estilo para el contenedor #ts1 */
+#ts1,#ts2,#ts3{
+    flex-direction: column; /* Ordenar elementos en columna */
+    background-color: #ffffff00;
+}
+.titulo{
+    gap: 5px;
+    font-size: 23px;
+    background-color: #fffffff3;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+.descripcion1{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50%;
+    max-width: 500px;
+}
+.descripcion1 h2{
+    font-family: 'WeatherSunday', Arial, sans-serif; 
+    font-size: 30px;
+    text-align: center;
+}
+
+
+/* Botón fijo para la sección técnicasSerigraficas */
+#tecnicasSerigraficas #pauseButton {
+    position: fixed; /* Fijo en la ventana, dentro de la sección */
+    bottom: 20px; /* Separación del borde inferior */
+    right: 20px; /* Separación del borde derecho */
+    padding: 12px 25px; /* Tamaño del botón */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    color: white; /* Texto blanco */
+    background-color: #007BFF; /* Fondo azul */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    z-index: 1000; /* Asegura que esté por encima del contenido */
+}
+
+/* Efectos al pasar el cursor sobre el botón */
+#tecnicasSerigraficas #pauseButton:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    transform: translateY(-2px); /* Elevación sutil */
+}
+
+/* Ocultar el botón fuera de la sección */
+#pauseButton {
+    display: none; /* Oculto por defecto */
+}
+
+/* Mostrar el botón solo dentro de técnicasSerigraficas */
+#tecnicasSerigraficas.active #pauseButton {
+    display: block; /* Botón visible cuando la sección está activa */
+}
+
+#agrupacion1 {
+    display: flex; /* Activar Flexbox */
+    flex-direction: row; /* Organizar elementos en fila */
+    align-items: center; /* Centrar elementos verticalmente */
+    justify-content: center; /* Centrar elementos horizontalmente */
+    gap: 20px; /* Espaciado entre el carrusel y la descripción */
+    margin: 20px auto; /* Centrar el contenedor en la página */
+    padding: 20px; /* Espaciado interno */
+    background-color: #eeeeee; /* Fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    width: 80%; /* Ajustar el ancho del contenedor */
+    max-width: 1200px; /* Ancho máximo */
+    text-align: left; /* Texto alineado a la izquierda */
+}
+
+/* Estilo para la lista de descripción */
+.lista-descripcion {
+    font-size: 15px; /* Tamaño del texto */
+    line-height: 1.2; /* Espaciado entre líneas */
+    color: #000000; /* Color del texto */
+    padding-left: 20px; /* Espaciado izquierdo */
+    margin: 0; /* Sin margen extra */
+    list-style-type: disc; /* Viñetas estándar */
+}
+
+/* Estilo para los elementos de la lista */
+.lista-descripcion li {
+    margin-bottom: 8px; /* Espaciado entre elementos */
+}
+
+#tecnicasSublimacion {
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+/* Contenedor de agrupación (fila) */
+#agrupacion2 {
+    display: flex; /* Activar Flexbox */
+    flex-direction: row; /* Organizar elementos en fila */
+    align-items: center; /* Centrar elementos verticalmente */
+    justify-content: center; /* Centrar elementos horizontalmente */
+    gap: 20px; /* Espaciado entre el carrusel y la descripción */
+    margin: 20px auto; /* Centrar el contenedor en la página */
+    padding: 20px; /* Espaciado interno */
+    background-color: #eeeeee; /* Fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    width: 80%; /* Ajustar el ancho del contenedor */
+    max-width: 900px; /* Ancho máximo */
+    text-align: left; /* Texto alineado a la izquierda */
+}
+
+#agrupacion2 .descripcion2 {
+    width: 900px; /* Ancho fijo */
+    max-width: none; /* Sin límite de ancho máximo */
+}
+
+
+
+
+/* Párrafo dentro de descripción */
+#agrupacion2 .descripcion2 p {
+    font-size: 19px; /* Tamaño del texto */
+    color: #000000; /* Color del texto */
+    line-height: 1.6; /* Altura de línea */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.titulo2{
+    gap: 5px;
+    font-size: 23px;
+    background-color: #fffffff3;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    text-align: center;
+    color: #000;
+}
+
+#agrupacion2 .carousel {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura fija para un tamaño general uniforme */
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4; /* Fondo para márgenes */
+}
+
+#tsn4{
+    flex-direction: column; /* Ordenar elementos en columna */
+    background-color: #ffffff00;
+}
+
+#tsn4 h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+
+/* Dispositivos móviles pequeños (hasta 768px) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Los enlaces se apilan verticalmente */
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0; /* Aumenta el espaciado entre los enlaces */
+    }
+    #contenedor1 {
+        padding: 10px; /* Reduce el espaciado interno */
+        font-size: 14px; /* Ajusta el tamaño del texto */
+    }
+    #quienesSomos h2 {
+        font-size: 24px; /* Reduce el tamaño de los títulos */
+    }
+    #quienesSomos p {
+        font-size: 16px; /* Reduce el tamaño del texto */
+    }
+}
+
+/* Dispositivos medianos (768px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    nav ul {
+        justify-content: space-between; /* Distribuye los enlaces */
+    }
+    #contenedor1 {
+        max-width: 700px; /* Reduce el ancho máximo del contenedor */
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Oculta el menú por defecto */
+        flex-direction: column;
+    }
+    nav.active ul {
+        display: flex; /* Muestra el menú al activarlo */
+    }
+}
