@@ -23,33 +23,39 @@ body {
      overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
 }
 
-nav{
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 2rem;
-        display: flex; /* Aseguramos que nav es flexible */
-        justify-content: space-between; /* Coloca los elementos (menú y botón) en extremos opuestos */
-        width: 100%; /* Ancho completo para el navbar */
-    }
-    nav ul {
-        display: none; /* Ocultar el menú en móviles por defecto */
-        flex-direction: column; /* Ordenar los enlaces en columna */
-        background-color: #333; /* Fondo para el menú desplegado */
-        align-items: flex-start; /* Alinea los enlaces a la izquierda */
-        width: 100%; /* Asegura que el menú ocupe el ancho completo */
-        margin-top: 2rem; /* Espaciado superior para que no esté pegado al botón */
-    }
+nav {
+    position: fixed; /* Fija el navbar en la parte superior */
+    top: 0;
+    width: 100%;
+    min-height: 30pvh; /* Altura del nav */
+    z-index: 1000; /* Asegura que el navbar esté siempre encima */
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los enlaces */
+    flex-wrap: nowrap; /* Asegura que los elementos se mantengan en una fila */
+}
 
 nav ul li {
     font-family: 'WeatherSunday', Arial, sans-serif; 
     margin:10px; /* Espaciado entre los enlaces */
+    text-align: center;
 }
 
 nav ul li a {
     color: #fff; /* Color del texto */
     text-decoration: none; /* Elimina el subrayado de los enlaces */
     font-size: 25px; /* Tamaño de fuente */
+    
     transition: color 0.3s ease; /* Transición suave para el color */
 }
 
@@ -415,9 +421,6 @@ nav ul li a:hover {
     max-width: none; /* Sin límite de ancho máximo */
 }
 
-
-
-
 /* Párrafo dentro de descripción */
 #agrupacion2 .descripcion2 p {
     font-size: 19px; /* Tamaño del texto */
@@ -471,24 +474,36 @@ nav ul li a:hover {
         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
+    nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        display: flex; /* Aseguramos que nav es flexible */
+        justify-content: space-between; /* Coloca los elementos (menú y botón) en extremos opuestos */
+        width: 100%; /* Ancho completo para el navbar */
+    }
     nav ul {
         display: none; /* Ocultar el menú en móviles por defecto */
         flex-direction: column; /* Ordenar los enlaces en columna */
-        width: 100%; /* Ancho completo */
         background-color: #333; /* Fondo para el menú desplegado */
+        align-items: flex-start; /* Alinea los enlaces a la izquierda */
+        width: 100%; /* Asegura que el menú ocupe el ancho completo */
+        margin-top: 2rem; /* Espaciado superior para que no esté pegado al botón */
     }
 
-     nav ul.show {
+    nav ul.show {
         display: flex; /* Mostrar el menú cuando tenga la clase 'show' */
     }
 
     nav ul li {
-        text-align: center; /* Centrar los enlaces */
+        text-align: left; /* Centrar los enlaces */
         width: 100%; /* Ancho completo para cada enlace */
     }
 
     nav ul li a {
-        font-size: 20px; /* Tamaño de texto ajustado */
+        font-size: 20px; /* Ajustar el tamaño de fuente en móviles */
+        padding: 10px; /* Añadir padding para hacerlo más accesible */
     }
 
     .menu-btn {
@@ -693,5 +708,43 @@ nav ul li a:hover {
 
     #tsn4 h2 {
         font-size: 30px; /* Reducir el tamaño del texto en pantallas medianas */
+    }
+}
+
+
+/* Media Query para pantallas grandes (más de 768px) */
+@media (max-width: 600px) {
+    nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        display: flex; /* Aseguramos que nav es flexible */
+        justify-content: space-between; /* Coloca los elementos (menú y botón) en extremos opuestos */
+        width: 100%; /* Ancho completo para el navbar */
+    }
+    nav ul {
+        display: none; /* Ocultar el menú en móviles por defecto */
+        flex-direction: column; /* Ordenar los enlaces en columna */
+        background-color: #333; /* Fondo para el menú desplegado */
+        align-items: center;
+    }
+
+    nav ul.show {
+        display: flex; /* Mostrar el menú cuando tenga la clase 'show' */
+    }
+
+    nav ul li {
+        text-align: left; /* Centrar los enlaces */
+        width: 100%; /* Ancho completo para cada enlace */
+    }
+
+    nav ul li a {
+        font-size: 20px; /* Ajustar el tamaño de fuente en móviles */
+        padding: 10px; /* Añadir padding para hacerlo más accesible */
+    }
+
+    .menu-btn {
+        display: block;
     }
 }
