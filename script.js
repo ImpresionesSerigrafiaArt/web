@@ -1,3 +1,19 @@
+//navegacion
+function toggleMenu() {
+    const menu = document.querySelector('nav ul');
+    menu.classList.toggle('show');
+}
+
+document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", () => {
+        const menu = document.querySelector("nav ul");
+        if (menu.classList.contains("show")) {
+            menu.classList.remove("show");
+        }
+    });
+});
+
+
 let currentSlide = 0;
 const slides = document.querySelectorAll(".carousel-slide");
 const pauseButton = document.getElementById("pauseButton");
