@@ -473,22 +473,23 @@ nav ul li a:hover {
     }
 
     nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #333;
-        position: absolute;
-        top: 50px;
-        right: 10px;
-        width: 200px;
-        border-radius: 5px;
+        display: none; /* Ocultar el menú en móviles por defecto */
+        flex-direction: column; /* Ordenar los enlaces en columna */
+        width: 100%; /* Ancho completo */
+        background-color: #333; /* Fondo para el menú desplegado */
     }
 
-    nav ul.show {
-        display: flex;
+     nav ul.show {
+        display: flex; /* Mostrar el menú cuando tenga la clase 'show' */
     }
 
-    nav li {
-        margin: 10px 0;
+    nav ul li {
+        text-align: center; /* Centrar los enlaces */
+        width: 100%; /* Ancho completo para cada enlace */
+    }
+
+    nav ul li a {
+        font-size: 20px; /* Tamaño de texto ajustado */
     }
 
     .menu-btn {
