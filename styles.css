@@ -20,6 +20,7 @@ body {
     justify-content: center; /* Centra todo horizontalmente */ 
     align-items: center; /* Centra todo verticalmente */ 
     flex-direction: column; /* Alinea los elementos en columna */ 
+     overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
 }
 
 nav {
@@ -603,6 +604,7 @@ nav ul li a:hover {
     #contenedor2 td {
         padding: 8px; /* Reducir espaciado interno */
         font-size: 12px; /* Reducir tamaño del texto */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     #contenedor2 ul li {
