@@ -26,9 +26,12 @@ nav {
     position: fixed; /* Fija el navbar en la parte superior */
     top: 0;
     width: 100%;
-    height: 50px; /* Altura del nav */
+    min-height: 50pvh; /* Altura del nav */
     z-index: 1000; /* Asegura que el navbar esté siempre encima */
     background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 nav ul {
@@ -54,6 +57,17 @@ nav ul li a {
 nav ul li a:hover {
     color: #87faa4; /* Color de los enlaces al pasar el ratón por encima */
 }
+
+/* Botón del menú */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 
 /* Contenedor principal */
 #fondo2 {
@@ -445,15 +459,65 @@ nav ul li a:hover {
 }
 
 
-/* Dispositivos móviles pequeños (hasta 768px) */
-@media (max-width: 768px) {
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+
+    .section {
+        margin-top: 20px; /* Reduce el margen superior */
+        background-size: contain; /* Ajusta el tamaño del fondo para que se vea completo */
+        width: 100%; /* Asegura que el ancho ocupe toda la pantalla */
+        height: auto; /* Permite que la altura se ajuste al contenido */
+        min-height: 80vh; /* Reduce la altura mínima */
+        padding: 10px; /* Añade un pequeño espaciado interno */
+        overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
+    }
+
     nav ul {
-        flex-direction: column; /* Los enlaces se apilan verticalmente */
-        align-items: center;
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        width: 200px;
+        border-radius: 5px;
     }
-    nav ul li {
-        margin: 10px 0; /* Aumenta el espaciado entre los enlaces */
+
+    nav ul.show {
+        display: flex;
     }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    #fondo2 {
+        height: auto; /* Permite que el contenido determine la altura */
+        padding: 20px; /* Agrega espaciado interno para evitar bordes ajustados */
+        justify-content: flex-start; /* Cambia la alineación horizontal en pantallas pequeñas */
+        align-items: flex-start; /* Cambia la alineación vertical */
+        overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede */
+        background-color: #eaeaea; /* Cambia el fondo para distinguirlo en dispositivos pequeños */
+    }
+    #portada {
+        width: 90%; /* Reduce el ancho para adaptarlo a pantallas pequeñas */
+        border-radius: 5px; /* Bordes menos pronunciados */
+        animation: moverYcentrar 3s ease-in-out forwards; /* Ajusta la duración */
+    }
+
+    #telefono {
+        bottom: 5%; /* Reposiciona más cerca del borde inferior */
+        left: 10%; /* Reposiciona más cerca del borde izquierdo */
+        font-size: 14px; /* Reduce el tamaño del texto */
+        padding: 8px 10px; /* Reduce el espaciado interno */
+        border-radius: 3px; /* Bordes más pequeños */
+        animation: moverTexto 3s ease-in-out forwards; /* Ajusta la duración de la animación */
+    }
+
     #contenedor1 {
         padding: 10px; /* Reduce el espaciado interno */
         font-size: 14px; /* Ajusta el tamaño del texto */
@@ -464,24 +528,160 @@ nav ul li a:hover {
     #quienesSomos p {
         font-size: 16px; /* Reduce el tamaño del texto */
     }
-}
-
-/* Dispositivos medianos (768px a 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    nav ul {
-        justify-content: space-between; /* Distribuye los enlaces */
+    #contenedor0 {
+        margin-top: 20px; /* Reduce el margen superior */
+        max-width: 90%; /* Ajusta el ancho máximo relativo a la pantalla */
+        padding: 10px; /* Reduce el espaciado interno */
+        gap: 10px; /* Ajusta el espaciado entre elementos */
     }
+
     #contenedor1 {
-        max-width: 700px; /* Reduce el ancho máximo del contenedor */
+        flex-direction: column; /* Apila los elementos verticalmente */
+        gap: 5px; /* Reduce el espaciado entre elementos */
+        padding: 10px; /* Disminuye el espaciado interno */
+        width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+        max-width: none; /* Elimina el límite de ancho */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce la intensidad de la sombra */
+        text-align: center; /* Asegura que el contenido siga centrado */
     }
-}
 
-@media (max-width: 768px) {
-    nav ul {
-        display: none; /* Oculta el menú por defecto */
-        flex-direction: column;
+    #contenedor2 {
+        gap: 10px; /* Reduce el espaciado entre los elementos */
+        width: 90%; /* Limita el ancho al 90% de la pantalla */
+        padding: 10px; /* Agrega un relleno para separar del borde */
+        font-size: 14px; /* Ajusta el tamaño del texto */
     }
-    nav.active ul {
-        display: flex; /* Muestra el menú al activarlo */
+
+    #contenedor1 img {
+        height: 60px; /* Reduce la altura de la imagen */
+        border-radius: 3px; /* Ajusta el redondeo para pantallas pequeñas */
+        margin: 0 auto; /* Centra la imagen horizontalmente */
+    }
+
+    #contenedor1 h2 {
+        font-size: 28px; /* Reduce el tamaño del texto */
+        margin: 5px 0; /* Añade un pequeño margen superior e inferior */
+    }
+
+    table {
+        display: flex;
+        flex-direction: column; /* Hacer que las celdas se apilen verticalmente */
+    }
+
+    table tr {
+        display: flex;
+        flex-direction: column; /* Apilar los elementos dentro de una fila */
+    }
+
+    table td {
+        width: 100%; /* Las celdas ocupan todo el ancho disponible */
+        padding: 5px; /* Reducir el espaciado interno */
+    }
+
+    table ul li {
+        font-size: 14px; /* Reducir el tamaño del texto en pantallas pequeñas */
+    }
+
+    #contenedor2 p {
+        font-size: 16px; /* Reducir tamaño de fuente en pantallas pequeñas */
+        line-height: 1.5; /* Incrementar la separación entre líneas */
+        padding: 0 10px; /* Añadir espacio interno para mejor legibilidad */
+    }
+
+    #contenedor2 table {
+        width: 100%; /* La tabla ocupa el ancho completo del contenedor */
+        font-size: 14px; /* Reducir el tamaño del texto */
+        overflow-x: auto; /* Scroll horizontal si es necesario */
+    }
+
+    #contenedor2 td {
+        padding: 8px; /* Reducir espaciado interno */
+        font-size: 12px; /* Reducir tamaño del texto */
+    }
+
+    #contenedor2 ul li {
+        font-size: 12px; /* Reducir el tamaño de la fuente en las listas */
+    }
+
+    #ts1, #ts2, #ts3 {
+        width: 100%; /* Hacer los contenedores ocupar todo el ancho */
+        flex-direction: column; /* Asegurar que los elementos sigan apilados */
+    }
+
+    /* Ajustes en la clase titulo */
+    .titulo {
+        font-size: 20px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+        padding: 10px; /* Asegurar que haya un poco de espacio interno */
+    }
+
+    /* Ajustes en las descripciones */
+    .descripcion1 {
+        width: 80%; /* Hacer la descripción más ancha en pantallas pequeñas */
+        font-size: 14px; /* Reducir el tamaño de la fuente */
+    }
+
+    /* Ajustes en el h2 dentro de .descripcion1 */
+    .descripcion1 h2 {
+        font-size: 24px; /* Reducir el tamaño del título */
+    }
+
+    #tecnicasSerigraficas #pauseButton {
+        padding: 10px 20px; /* Reducir el tamaño del botón */
+        font-size: 16px; /* Reducir el tamaño de la fuente */
+        bottom: 15px; /* Reducir la distancia del borde inferior */
+        right: 15px; /* Reducir la distancia del borde derecho */
+    }
+
+    #tecnicasSerigraficas.active #pauseButton {
+        padding: 10px 20px; /* Reducir el tamaño del botón */
+        font-size: 16px; /* Reducir el tamaño de la fuente */
+        bottom: 15px; /* Reducir la distancia del borde inferior */
+        right: 15px; /* Reducir la distancia del borde derecho */
+    }
+
+    #agrupacion1 {
+        flex-direction: column; /* Cambiar a columna */
+        gap: 15px; /* Reducir el espaciado */
+        padding: 15px; /* Reducir el padding */
+    }
+
+    .lista-descripcion {
+        font-size: 14px; /* Reducir tamaño de fuente en pantallas pequeñas */
+        padding-left: 15px; /* Reducir espaciado izquierdo */
+    }
+
+    .lista-descripcion li {
+        margin-bottom: 6px; /* Reducir espaciado entre elementos */
+    }
+
+    #agrupacion2 {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        gap: 15px; /* Reducir el espaciado entre elementos */
+        padding: 15px; /* Reducir espaciado interno */
+    }
+
+    #tecnicasSublimacion {
+        padding: 15px; /* Reducir padding en pantallas pequeñas */
+    }
+
+    #agrupacion2 .descripcion2 {
+        width: 100%; /* Ancho 100% en pantallas más pequeñas */
+        max-width: 100%; /* Sin límite de ancho máximo */
+    }
+
+    #agrupacion2 .descripcion2 p {
+        font-size: 16px; /* Reducir tamaño del texto para pantallas pequeñas */
+    }
+
+    .titulo2 {
+        font-size: 20px; /* Reducir tamaño de título */
+    }
+
+    #agrupacion2 .carousel {
+        height: 250px; /* Ajustar altura del carrusel en pantallas pequeñas */
+    }
+
+    #tsn4 h2 {
+        font-size: 30px; /* Reducir el tamaño del texto en pantallas medianas */
     }
 }
