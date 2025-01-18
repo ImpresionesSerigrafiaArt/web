@@ -23,25 +23,23 @@ body {
      overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
 }
 
-nav {
-    position: fixed; /* Fija el navbar en la parte superior */
-    top: 0;
-    width: 100%;
-    min-height: 50pvh; /* Altura del nav */
-    z-index: 1000; /* Asegura que el navbar esté siempre encima */
-    background-color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centra horizontalmente los enlaces */
-}
+nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2rem;
+        display: flex; /* Aseguramos que nav es flexible */
+        justify-content: space-between; /* Coloca los elementos (menú y botón) en extremos opuestos */
+        width: 100%; /* Ancho completo para el navbar */
+    }
+    nav ul {
+        display: none; /* Ocultar el menú en móviles por defecto */
+        flex-direction: column; /* Ordenar los enlaces en columna */
+        background-color: #333; /* Fondo para el menú desplegado */
+        align-items: flex-start; /* Alinea los enlaces a la izquierda */
+        width: 100%; /* Asegura que el menú ocupe el ancho completo */
+        margin-top: 2rem; /* Espaciado superior para que no esté pegado al botón */
+    }
 
 nav ul li {
     font-family: 'WeatherSunday', Arial, sans-serif; 
