@@ -34,6 +34,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    height: 5px; /* Ajusta según tu diseño */
 }
 
 nav ul {
@@ -43,6 +44,13 @@ nav ul {
     display: flex;
     justify-content: center; /* Centra horizontalmente los enlaces */
     flex-wrap: nowrap; /* Asegura que los elementos se mantengan en una fila */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #333;
+    
 }
 
 nav ul li {
@@ -61,6 +69,11 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #87faa4; /* Color de los enlaces al pasar el ratón por encima */
+}
+
+nav ul.show {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Botón del menú */
