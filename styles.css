@@ -534,6 +534,7 @@ nav ul li a:hover {
         max-width: 90%; /* Ajusta el ancho máximo relativo a la pantalla */
         padding: 10px; /* Reduce el espaciado interno */
         gap: 10px; /* Ajusta el espaciado entre elementos */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     #contenedor1 {
@@ -544,6 +545,7 @@ nav ul li a:hover {
         max-width: none; /* Elimina el límite de ancho */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce la intensidad de la sombra */
         text-align: center; /* Asegura que el contenido siga centrado */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     #contenedor2 {
@@ -551,6 +553,7 @@ nav ul li a:hover {
         width: 90%; /* Limita el ancho al 90% de la pantalla */
         padding: 10px; /* Agrega un relleno para separar del borde */
         font-size: 14px; /* Ajusta el tamaño del texto */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     #contenedor1 img {
@@ -567,6 +570,7 @@ nav ul li a:hover {
     table {
         display: flex;
         flex-direction: column; /* Hacer que las celdas se apilen verticalmente */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     table tr {
@@ -593,6 +597,7 @@ nav ul li a:hover {
         width: 100%; /* La tabla ocupa el ancho completo del contenedor */
         font-size: 14px; /* Reducir el tamaño del texto */
         overflow-x: auto; /* Scroll horizontal si es necesario */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     #contenedor2 td {
@@ -607,6 +612,7 @@ nav ul li a:hover {
     #ts1, #ts2, #ts3 {
         width: 100%; /* Hacer los contenedores ocupar todo el ancho */
         flex-direction: column; /* Asegurar que los elementos sigan apilados */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     /* Ajustes en la clase titulo */
@@ -619,6 +625,7 @@ nav ul li a:hover {
     .descripcion1 {
         width: 80%; /* Hacer la descripción más ancha en pantallas pequeñas */
         font-size: 14px; /* Reducir el tamaño de la fuente */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     /* Ajustes en el h2 dentro de .descripcion1 */
@@ -644,6 +651,7 @@ nav ul li a:hover {
         flex-direction: column; /* Cambiar a columna */
         gap: 15px; /* Reducir el espaciado */
         padding: 15px; /* Reducir el padding */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     .lista-descripcion {
@@ -659,6 +667,7 @@ nav ul li a:hover {
         flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
         gap: 15px; /* Reducir el espaciado entre elementos */
         padding: 15px; /* Reducir espaciado interno */
+         overflow-y: scroll; /* Permite desplazamiento vertical en caso de contenido largo */
     }
 
     #tecnicasSublimacion {
