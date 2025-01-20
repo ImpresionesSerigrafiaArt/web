@@ -251,7 +251,6 @@ nav ul.show {
 #contenedor2 td {
     padding: 10px; /* Espaciado interno */
     text-align: left; /* Alinear texto a la izquierda */
-    border: 1px solid #000; /* Borde interno de las celdas */
 }
 
 /* Estilo para listas dentro de #contenedor2 */
